@@ -106,6 +106,17 @@ export class LinkedList<T> {
         }
         return array;
     }
+
+    printListReverse() : T[] {
+        let array:Array<T> = [];
+        let current = this.tail;
+        
+        while(current != null){
+            array.push(current.value);
+            current = current.prev;
+        }
+        return array;
+    }
 }
 
 class Node<T>{
