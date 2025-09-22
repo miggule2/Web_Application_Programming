@@ -22,6 +22,46 @@ export class LinkedList<T> {
         this.tail.next = null;
     }
 
+    delete(value : T){
+        let current = this.head;
+        while(current != null){
+            if(current.value == value){
+                break;
+            }
+            current = current.next;
+        }
+
+        if(current == null) return;
+        
+        if(this.size() == 1 || 0){
+            this.head = null;
+            this.tail = null;
+            return;
+        }
+
+        if(current == this.head){
+            this.head = this.head.next;
+            if(this.head != null){
+                this.head.prev = null;
+            }
+            return;
+        }
+
+        if(current == this.tail){
+            this.tail = this.tail.prev;
+            if(this.tail != null){
+                this.tail.next = null;
+            }
+            return;
+        }
+
+        if(current.prev != null && current.next != null){
+            current.prev.next = current.next;
+            current.next.prev = current.prev;
+        }
+        return;
+    }
+
     size() : number{
         let size = 0;
         let current = this.head;
