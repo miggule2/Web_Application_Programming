@@ -77,6 +77,16 @@ export class LinkedList<T> {
         return null;
     }
 
+    getFirst() : (T|null) {
+        if(this.head == null) return null;
+        else return this.head.value;
+    }
+    
+    getLast() : (T|null) {
+        if(this.tail == null) return null;
+        else return this.tail.value;
+    }
+
     size() : number{
         let size = 0;
         let current = this.head;
