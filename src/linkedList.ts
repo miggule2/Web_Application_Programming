@@ -62,6 +62,21 @@ export class LinkedList<T> {
         return;
     }
 
+    search(value : T) : (number|null) {
+        let index : number = 1;
+        let current = this.head;
+
+        while(current != null){
+            if(current.value == value){
+                return index;
+            }
+            index++;
+            current = current.next;
+        }
+
+        return null;
+    }
+
     size() : number{
         let size = 0;
         let current = this.head;
